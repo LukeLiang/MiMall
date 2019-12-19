@@ -1,10 +1,10 @@
 <template>
   <div>
-      <!-- 这里面的Index不显示吗? -->
+    欢迎进入detail页面
   </div>
 </template>
 <script>
   export default{
-    name:'index'
+    name:'detail'
   }
 </script>

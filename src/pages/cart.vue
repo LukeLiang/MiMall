@@ -1,10 +1,10 @@
 <template>
   <div>
-      <!-- 这里面的Index不显示吗? -->
+    购物车
   </div>
 </template>
 <script>
   export default{
-    name:'index'
+    name:'cart'
   }
 </script>
