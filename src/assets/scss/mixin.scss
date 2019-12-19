@@ -4,6 +4,12 @@
   justify-content:$hov;
   align-items:$col;
 }
+@mixin fc($justify-content:center, $align-items:center){
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 @mixin bgImg($w:0,$h:0,$img:'',$size:contain){
   display:inline-block;
   width:$w;
