@@ -100,7 +100,7 @@
       }
     }
   }
-</script>715
+</script>
 <style lang="scss">
   @import './../assets/scss/mixin.scss';
   @import './../assets/scss/config.scss';
