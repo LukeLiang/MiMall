@@ -1,10 +1,14 @@
 <template>
   <div>
-      <!-- 这里面的Index不显示吗? -->
+    <service-bar></service-bar>
   </div>
 </template>
 <script>
+  import ServiceBar from '../components/serviceBar';
   export default{
-    name:'index'
+    name:'index',
+    components:{
+      ServiceBar
+    }
   }
 </script>

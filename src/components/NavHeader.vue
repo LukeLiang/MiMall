@@ -89,7 +89,6 @@ export default {
           }
         })
         .then(res => {
-          window.console.log(res);
           if (res.list.length > 6) {
             this.phoneList = res.list.slice(0, 6);
           }
@@ -195,6 +194,7 @@ export default {
             width: 1226px;
             position: absolute;
             height: 0;
+            background-color: #FFFFFF;
             top: 112px;
             left: 0;
             border-top: 1px solid #e5e5e5;
