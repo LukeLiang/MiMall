@@ -234,6 +234,9 @@ export default {
       .swiper-button-prev {
         left: 275px;
       }
+      .swiper-button-next{
+        right:155px;
+      }
     }
     .ads-box {
       margin-left: 146.6px;
