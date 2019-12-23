@@ -69,14 +69,14 @@
         <div class="wrapper">
           <div class="title">手机</div>
           <div class="phone">
-            <div class="phone-left">
+            <div class="phone-left" @click="showAnimation">
               <a href="javascript:;">
-                <img src="/imgs/mix-alpha.jpg" alt />
+                <img v-lazy="'/imgs/mix-alpha.jpg'" alt />
               </a>
             </div>
             <div class="phone-right">
               <div class="item" v-for="(item, index) in phoneList" :key="index">
-                <img :src="item.mainImage" alt />
+                <img v-lazy="item.mainImage" alt />
                 <div class="name">{{item.name}}</div>
                 <div class="subtitle">{{item.subtitle}}</div>
                 <div class="price">{{item.price}}元</div>
@@ -85,6 +85,15 @@
           </div>
         </div>
       </div>
+      <modal v-if="showModal"
+             v-on:confirm="gotoCart"
+             v-on:cancel="showModal = false"
+             :showModal = "showModal"
+      >
+        <template v-slot:body>
+          <span>添加商品成功</span>
+        </template>
+      </modal>
     </div>
     <service-bar></service-bar>
   </div>
@@ -93,12 +102,14 @@
 import ServiceBar from "../components/serviceBar";
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+import modal from '../components/Modal';
 export default {
   name: "index",
   components: {
     ServiceBar,
     swiper,
-    swiperSlide
+    swiperSlide,
+    modal
   },
   data() {
     return {
@@ -147,7 +158,8 @@ export default {
           img: "/imgs/ads/ads-4.jpg"
         }
       ],
-      phoneList: []
+      phoneList: [],
+      showModal: false
     };
   },
   mounted() {
@@ -162,9 +174,15 @@ export default {
             pageSize: 8
           }
         })
-        .then(res => {
+        .then((res) => {
           this.phoneList = res.list;
         });
+    },
+    gotoCart(){
+      this.showModal = false
+    },
+    showAnimation(){
+      this.showModal = true
     }
   }
 };
