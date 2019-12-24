@@ -11,10 +11,10 @@
         <div class="topbar-user">
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="username">我的订单</a>
-          <a href="javascript:;" v-if="!username">登录</a>
+          <a href="javascript:;" v-if="!username" @click="login">登录</a>
           <a href="javascript:;" v-if="!username">注册</a>
           <a href="javascript:;" class="my-cart" @click="gotoMyCart">
-            <span class="icon-cart"></span>购物车
+            <span class="icon-cart"></span>购物车<span v-if="cartCount">({{cartCount}})</span>
           </a>
         </div>
       </div>
@@ -63,9 +63,17 @@ export default {
   name: "nav-footer",
   data() {
     return {
-      username: "Luke",
       phoneList: []
     };
+  },
+  computed:{
+    // 在computed中定义的函数名 不能再 data()出同时出现
+    username(){
+        return this.$store.state.username;
+      },
+      cartCount(){
+        return this.$store.state.cartCount;
+      }
   },
   mounted() {
     this.getProductList();
@@ -77,6 +85,9 @@ export default {
     }
   },
   methods: {
+    login(){
+      this.$router.push('/login');
+    },
     gotoMyCart(){
       this.$router.push('/cart');
     },

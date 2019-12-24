@@ -69,6 +69,8 @@ export default {
       }).then( (res) => {
         this.username = res.username;
         this.$cookie.set('userId', res.id);
+        // 将用户信息保存到 Vuex当中
+        this.$store.dispatch('saveUserName', res.username)
         this.$router.push('/index');
       })
     },
