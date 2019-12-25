@@ -189,7 +189,8 @@ export default {
           color: #333333;
           font-weight: bold;
           font-size: 16px;
-          line-height: 112px;
+          height: 20px;
+          line-height: 20px;
           margin-right: 20px;
           span {
             cursor: pointer;
