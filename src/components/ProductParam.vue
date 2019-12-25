@@ -2,7 +2,7 @@
   <div class="main" :class="{'is_fixed':isFixed}">
     <div class="container">
       <div class="container-left">
-        <span class="f12">小米9 超级买赠</span>
+        <span class="f12">{{title}}</span>
         <span>|</span>
         <span class="f13">小米9</span>
         <span>|</span>
@@ -22,6 +22,9 @@
 <script>
 export default {
   name: "product-param",
+  props:{
+    title:String
+  },
   data() {
     return {
       isFixed: false
@@ -48,6 +51,7 @@ export default {
 <style lang="scss">
 @import "./../assets/scss/config.scss";
 .main {
+  background-color: #FFFFFF;
   &.is_fixed {
     position: fixed;
     top: 0;
