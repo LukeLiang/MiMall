@@ -132,6 +132,7 @@ export default {
     background-color: $colorA;
     color: $colorG;
     font-size: 12px;
+    cursor: pointer;
   }
   .content {
     .item-bg {
